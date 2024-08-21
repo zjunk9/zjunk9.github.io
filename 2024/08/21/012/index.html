@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>保姆级Android系统优化教程（免Root篇） | 小筑喵的空间</title><meta name="author" content="xiluo"><meta name="copyright" content="xiluo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言随着Ai化进程，国内系统越来越臃肿，这导致原本那些低内存低性能的手机变的一卡再卡的。 我根据平时家里人的使用习惯，为他们的手机进行了适当的精简和优化，保存此篇文档是为了方便我同时也方便大家共创。 教程共分为两篇——免Root篇与Root篇 ADB授权目前手机普遍Android版本较高，都支持无线授权，如不支持授权，则需要用数据线连接电脑，电脑使用搞机助手或秋之盒进行有线授权。 无线授权 手机下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="保姆级Android系统优化教程（免Root篇）">
+<meta property="og:url" content="http://zjunk9.github.io/2024/08/21/012/index.html">
+<meta property="og:site_name" content="小筑喵的空间">
+<meta property="og:description" content="前言随着Ai化进程，国内系统越来越臃肿，这导致原本那些低内存低性能的手机变的一卡再卡的。 我根据平时家里人的使用习惯，为他们的手机进行了适当的精简和优化，保存此篇文档是为了方便我同时也方便大家共创。 教程共分为两篇——免Root篇与Root篇 ADB授权目前手机普遍Android版本较高，都支持无线授权，如不支持授权，则需要用数据线连接电脑，电脑使用搞机助手或秋之盒进行有线授权。 无线授权 手机下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202408211432547.png">
+<meta property="article:published_time" content="2024-08-21T06:27:13.000Z">
+<meta property="article:modified_time" content="2024-08-21T06:33:26.565Z">
+<meta property="article:author" content="xiluo">
+<meta property="article:tag" content="-教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202408211432547.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://zjunk9.github.io/2024/08/21/012/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '保姆级Android系统优化教程（免Root篇）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-21 14:33:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/xiluoyun/pic/202305111121284.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gcore.jsdelivr.net/gh/xiluoyun/pic/202408211432547.png')"><nav id="nav"><span id="blog-info"><a href="/" title="小筑喵的空间"><span class="site-name">小筑喵的空间</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">保姆级Android系统优化教程（免Root篇）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-21T06:27:13.000Z" title="发表于 2024-08-21 14:27:13">2024-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-21T06:33:26.565Z" title="更新于 2024-08-21 14:33:26">2024-08-21</time></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>随着Ai化进程，国内系统越来越臃肿，这导致原本那些低内存低性能的手机变的一卡再卡的。</p>
+<p>我根据平时家里人的使用习惯，为他们的手机进行了适当的精简和优化，保存此篇文档是为了方便我同时也方便大家共创。</p>
+<p>教程共分为两篇——<strong>免Root篇与Root篇</strong></p>
+<h3 id="ADB授权"><a href="#ADB授权" class="headerlink" title="ADB授权"></a>ADB授权</h3><p>目前手机普遍Android版本较高，都支持无线授权，如不支持授权，则需要用数据线连接电脑，电脑使用搞机助手或秋之盒进行有线授权。</p>
+<h4 id="无线授权"><a href="#无线授权" class="headerlink" title="无线授权"></a>无线授权</h4><blockquote>
+<p>手机下载黑阈，点击无线调试端口（已跳过前面步骤），授权成功即可，此软件用于调节系统后台，能够有效管控后台流氓现象，遇到后台非常流氓的或者你不希望他在后台的，可以设置为激进模式，有效杀死软件。</p>
+<p>同时，黑阈还支持ADB命令终端，这意味着你只要不关机，可以随时授权其它软件ADB权限。</p>
+</blockquote>
+<h4 id="有线授权"><a href="#有线授权" class="headerlink" title="有线授权"></a>有线授权</h4><blockquote>
+<p>首先，手机下载shizuku，手机用数据线连接电脑，打开搞机助手，选择shizuku激活，如果不能激活，那就要手机下载黑阈，搞机助手选择黑阈激活。</p>
+<p>激活完成后，复制shizuku软件下的命令，打开黑阈终端，粘贴命令，不要执行！将最前面的adb shell 删除再执行。可以看到shizuku授权成功。</p>
+<p>shizuku是一个用于管理ADB授权的软件，他可以像Root权限那样直接授权那些支持的软件（后面会用到）。</p>
+</blockquote>
+<h3 id="软件优化"><a href="#软件优化" class="headerlink" title="软件优化"></a>软件优化</h3><h4 id="shizuku"><a href="#shizuku" class="headerlink" title="shizuku"></a><a target="_blank" rel="noopener" href="https://shizuku.rikka.app/">shizuku</a></h4><blockquote>
+<p>接管adb授权软件，不用每次都使用命令激活。</p>
+</blockquote>
+<h4 id="黑阈"><a href="#黑阈" class="headerlink" title="黑阈"></a><a target="_blank" rel="noopener" href="https://brevent.jianyv.com/">黑阈</a></h4><p><strong><a target="_blank" rel="noopener" href="https://brevent.sh/">网页激活</a></strong></p>
+<blockquote>
+<p>用于管理后台流氓行为，做到快速杀死后台，可搭配绿色守护使用。</p>
+<p>需要注意，如果你是root用户，请下载<strong>黑阈 补丁版</strong></p>
+</blockquote>
+<h4 id="小黑屋"><a href="#小黑屋" class="headerlink" title="小黑屋"></a><a target="_blank" rel="noopener" href="https://stopapp.https.gs/">小黑屋</a></h4><p><strong><a target="_blank" rel="noopener" href="https://adb.http.gs/">Abb 在线执行器</a></strong></p>
+<blockquote>
+<p>用于冻结系统些不重要但又不能卸载的软件。</p>
+<p>附带小米和一加的精简列表，仅供参考。</p>
+</blockquote>
+<p>小白不会用可以使用下面软件一键处理：</p>
+<h5 id="X计划"><a href="#X计划" class="headerlink" title="X计划"></a>X计划</h5><blockquote>
+<p>适用于蓝厂系</p>
+</blockquote>
+<h5 id="X-for-color"><a href="#X-for-color" class="headerlink" title="X for color"></a>X for color</h5><blockquote>
+<p>适用于黑厂系</p>
+</blockquote>
+<h4 id="Canta"><a href="#Canta" class="headerlink" title="Canta"></a>Canta</h4><blockquote>
+<p>用于卸载系统不用的软件，重启可能会恢复，看系统而论。</p>
+</blockquote>
+<h4 id="雹"><a href="#雹" class="headerlink" title="雹"></a>雹</h4><blockquote>
+<p>多模式调节软件，有停用，暂停，隐藏三种模式，用与小黑屋冻结不了的软件，理论上说是小黑屋的上位替代，但是他只可调一种模式使用，不能分开使用，所以建议还是下载多一个小黑屋。实测黑厂系统使用暂停模式可以冻结主题达到永久试用主题的效果，并且关机不会恢复。</p>
+</blockquote>
+<h4 id="scene"><a href="#scene" class="headerlink" title="scene"></a><a target="_blank" rel="noopener" href="http://vtools.omarea.com/#/">scene</a></h4><blockquote>
+<p>使用ADB模式打开（需要注意，使用shizuku授权，需要把shizuku保留在后台，他才会识别到），可以修改屏幕分辨率达到高性能的效果，但是显示分辨率会低（这是什么远古游提升帧率大法…）例如720P分辨率可以调为576P，1080P可以调为720P，最常见的就是2K切换为1080P用，这些会省电，直接用比例换算一下，因为每台手机的dpi不同，无法给出对应的参数，同时，dpi也是需要修改的，否则字体会变大，如果无法修改或者无法正常显示，还可以去开发者选项设置最低宽度，理论来说，他接近与dpi值。</p>
+<p>还有一个功能，那就是强制编译，对于低端机来说，编译优化后的软件会变的流畅较为明显，编译类型选择everything。编译时间根据系统来定，这个我也不清楚，黑厂手机编译很快，大概一分钟左右，蓝厂则非常慢，软件越多越慢，建议晚上睡觉前点击编译。</p>
+<p>软件还提供其它功能就不一一赘述，值得一提的就是应用管理，貌似可以卸载系统应用，这方面我还没有试过。</p>
+<p>需要注意的是，scene自5后就开始<strong>收费</strong>，如要root使用，请下载<strong>5 Alpha或者4</strong>。</p>
+</blockquote>
+<h4 id="系统优化"><a href="#系统优化" class="headerlink" title="系统优化"></a>系统优化</h4><blockquote>
+<p>可能仅限OV家族，利用脚本实现调度策略，目前我刚装，感觉还没什么效果，不过可以试试。</p>
+</blockquote>
+<h4 id="权限狗"><a href="#权限狗" class="headerlink" title="权限狗"></a>权限狗</h4><blockquote>
+<p>用于管理应用权限的软件，可以控制系统软件不访问软件的权限，置于应用上层权限，也可以用于屏蔽摇一摇广告，只需禁用传感器授权即可。</p>
+</blockquote>
+<h4 id="SAI"><a href="#SAI" class="headerlink" title="SAI"></a>SAI</h4><blockquote>
+<p>用于安装Apk或者Apks，mt也支持这功能了，用处不大</p>
+</blockquote>
+<h4 id="MT管理器"><a href="#MT管理器" class="headerlink" title="MT管理器"></a><a target="_blank" rel="noopener" href="https://mt2.cn/">MT管理器</a></h4><blockquote>
+<p>授权后可以访问data目录，支持apks安装和转换</p>
+</blockquote>
+<h4 id="R-安装组件"><a href="#R-安装组件" class="headerlink" title="R-安装组件"></a>R-安装组件</h4><blockquote>
+<p>替换系统自带安装程序，用于软件后台静默安装</p>
+</blockquote>
+<h4 id="AdGurd"><a href="#AdGurd" class="headerlink" title="AdGurd"></a>AdGurd</h4><p>过滤器规则</p>
+<blockquote>
+<p>利用VPN模式，过滤网络广告，可以过滤打多数广告，需要自己添加过滤器，而且使用需要一直挂后台。</p>
+</blockquote>
+<h4 id="misslee（大小姐李跳跳）"><a href="#misslee（大小姐李跳跳）" class="headerlink" title="misslee（大小姐李跳跳）"></a>misslee（大小姐李跳跳）</h4><p>李跳跳规则</p>
+<blockquote>
+<p>李跳跳给告后，早已停更，幸亏她是无网络权限的软件，旧版本仍然可用，虽然有很多平替，但是还是不如白月光大小姐（其实是系统占用低），添加新规则后，李跳跳完全体又回来了。目前有至少两位大神在维护李跳跳规则，感谢大佬。</p>
+</blockquote>
+<h4 id="爱玩机工具箱"><a href="#爱玩机工具箱" class="headerlink" title="爱玩机工具箱"></a>爱玩机工具箱</h4><blockquote>
+<p>说实话，不是很推荐这玩意，要的权限太多。但是他功能实在太多了，还是可以用的。</p>
+<p>我目前用来开启系统的墓碑模式，选择一直启动就行，记得要重启。</p>
+<p>除此之外，还可以用来开启状态栏时钟显秒，和隐藏不必要的通知栏图标。</p>
+</blockquote>
+<h4 id="内存杀手"><a href="#内存杀手" class="headerlink" title="内存杀手"></a>内存杀手</h4><blockquote>
+<p>这是一个用于清理后台的软件，利用内存拥挤，达到清空后台的效果，哪怕你是锁定软件也不例外，对于内存低的老手机有奇效。</p>
+</blockquote>
+<h4 id="绿色守护"><a href="#绿色守护" class="headerlink" title="绿色守护"></a>绿色守护</h4><blockquote>
+<p>使用shizuku授权版，可以达到和Root权限类似的体验，用于休眠后台软件。</p>
+</blockquote>
+<h4 id="蓝厂工具箱"><a href="#蓝厂工具箱" class="headerlink" title="蓝厂工具箱"></a>蓝厂工具箱</h4><blockquote>
+<p>仅限蓝厂使用。</p>
+</blockquote>
+<h3 id="PC软件优化"><a href="#PC软件优化" class="headerlink" title="PC软件优化"></a>PC软件优化</h3><h4 id="鸿蒙工具箱（PC）"><a href="#鸿蒙工具箱（PC）" class="headerlink" title="鸿蒙工具箱（PC）"></a>鸿蒙工具箱（PC）</h4><blockquote>
+<p>仅限鸿蒙系统使用。</p>
+</blockquote>
+<h4 id="搞机助手（PC）"><a href="#搞机助手（PC）" class="headerlink" title="搞机助手（PC）"></a><a target="_blank" rel="noopener" href="https://lsdy.top/gjzs">搞机助手（PC）</a></h4><blockquote>
+<p>授权命令，刷机等等。</p>
+</blockquote>
+<h4 id="秋之盒（PC）"><a href="#秋之盒（PC）" class="headerlink" title="秋之盒（PC）"></a>秋之盒（PC）</h4><blockquote>
+<p>同上。</p>
+</blockquote>
+<h4 id="搞机工具箱（PC）"><a href="#搞机工具箱（PC）" class="headerlink" title="搞机工具箱（PC）"></a>搞机工具箱（PC）</h4><blockquote>
+<p>酷安晨钟酱开发的软件，可以用来降级软件等。</p>
+</blockquote>
+<h3 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h3><h4 id="百度输入法养老版"><a href="#百度输入法养老版" class="headerlink" title="百度输入法养老版"></a>百度输入法养老版</h4><blockquote>
+<p>由下北沢大佬修改，可使用本地版本。</p>
+</blockquote>
+<h4 id="互传"><a href="#互传" class="headerlink" title="互传"></a><a target="_blank" rel="noopener" href="https://es.vivo.com/">互传</a></h4><blockquote>
+<p>个人认为兼容性最好的传输软件，什么版本都能安装，电脑使用网页版都够用了。</p>
+</blockquote>
+<h4 id="FTP-Share"><a href="#FTP-Share" class="headerlink" title="FTP Share"></a>FTP Share</h4><blockquote>
+<p>可用来传输文件，也可用来查看文件和视频等。</p>
+</blockquote>
+<h4 id="MX-Player-Pro"><a href="#MX-Player-Pro" class="headerlink" title="MX Player Pro"></a>MX Player Pro</h4><blockquote>
+<p>老牌播放软件，目前已经支持长按2倍速播放。</p>
+</blockquote>
+<h4 id="IDM-美化高级版"><a href="#IDM-美化高级版" class="headerlink" title="IDM+美化高级版"></a>IDM+美化高级版</h4><blockquote>
+<p>美化主题为埃罗芒老师</p>
+</blockquote>
+<h4 id="雪豹速清"><a href="#雪豹速清" class="headerlink" title="雪豹速清"></a><a target="_blank" rel="noopener" href="http://www.icoolby.com/">雪豹速清</a></h4><blockquote>
+<p>清理软件，小而美。</p>
+</blockquote>
+<h4 id="NCM-Dump"><a href="#NCM-Dump" class="headerlink" title="NCM Dump"></a>NCM Dump</h4><blockquote>
+<p>解锁网易云加密格式</p>
+</blockquote>
+<h3 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h3><blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://xily.lanzoub.com/b0mauo23c">蓝奏云（2233）</a></strong></p>
+<p>如遇到无法下载请切换网络或更改浏览器UA为电脑</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://zjunk9.github.io">xiluo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://zjunk9.github.io/2024/08/21/012/">http://zjunk9.github.io/2024/08/21/012/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://zjunk9.github.io" target="_blank">小筑喵的空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">-教程</a></div><div class="post_share"><div class="social-share" data-image="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202408211432547.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/06/011/" title="window10安装window11自带应用——以笔记本为例"><img class="cover" src="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202403061625955.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">window10安装window11自带应用——以笔记本为例</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/xiluoyun/pic/202305111121284.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">xiluo</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zjunk9"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">永久地址：https://zjunk9.github.io 欢迎大家来访，本站已完成迁移，祝大家生活愉快！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADB%E6%8E%88%E6%9D%83"><span class="toc-number">2.</span> <span class="toc-text">ADB授权</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E6%8E%88%E6%9D%83"><span class="toc-number">2.1.</span> <span class="toc-text">无线授权</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E7%BA%BF%E6%8E%88%E6%9D%83"><span class="toc-number">2.2.</span> <span class="toc-text">有线授权</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">软件优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shizuku"><span class="toc-number">3.1.</span> <span class="toc-text">shizuku</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%91%E9%98%88"><span class="toc-number">3.2.</span> <span class="toc-text">黑阈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E9%BB%91%E5%B1%8B"><span class="toc-number">3.3.</span> <span class="toc-text">小黑屋</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#X%E8%AE%A1%E5%88%92"><span class="toc-number">3.3.1.</span> <span class="toc-text">X计划</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#X-for-color"><span class="toc-number">3.3.2.</span> <span class="toc-text">X for color</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Canta"><span class="toc-number">3.4.</span> <span class="toc-text">Canta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B9"><span class="toc-number">3.5.</span> <span class="toc-text">雹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scene"><span class="toc-number">3.6.</span> <span class="toc-text">scene</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96"><span class="toc-number">3.7.</span> <span class="toc-text">系统优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E7%8B%97"><span class="toc-number">3.8.</span> <span class="toc-text">权限狗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SAI"><span class="toc-number">3.9.</span> <span class="toc-text">SAI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MT%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">3.10.</span> <span class="toc-text">MT管理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#R-%E5%AE%89%E8%A3%85%E7%BB%84%E4%BB%B6"><span class="toc-number">3.11.</span> <span class="toc-text">R-安装组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AdGurd"><span class="toc-number">3.12.</span> <span class="toc-text">AdGurd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#misslee%EF%BC%88%E5%A4%A7%E5%B0%8F%E5%A7%90%E6%9D%8E%E8%B7%B3%E8%B7%B3%EF%BC%89"><span class="toc-number">3.13.</span> <span class="toc-text">misslee（大小姐李跳跳）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%B1%E7%8E%A9%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="toc-number">3.14.</span> <span class="toc-text">爱玩机工具箱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E6%9D%80%E6%89%8B"><span class="toc-number">3.15.</span> <span class="toc-text">内存杀手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BF%E8%89%B2%E5%AE%88%E6%8A%A4"><span class="toc-number">3.16.</span> <span class="toc-text">绿色守护</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%93%9D%E5%8E%82%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="toc-number">3.17.</span> <span class="toc-text">蓝厂工具箱</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PC%E8%BD%AF%E4%BB%B6%E4%BC%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">PC软件优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%B8%BF%E8%92%99%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%88PC%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">鸿蒙工具箱（PC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9E%E6%9C%BA%E5%8A%A9%E6%89%8B%EF%BC%88PC%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">搞机助手（PC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%8B%E4%B9%8B%E7%9B%92%EF%BC%88PC%EF%BC%89"><span class="toc-number">4.3.</span> <span class="toc-text">秋之盒（PC）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9E%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%88PC%EF%BC%89"><span class="toc-number">4.4.</span> <span class="toc-text">搞机工具箱（PC）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">其他软件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%BE%93%E5%85%A5%E6%B3%95%E5%85%BB%E8%80%81%E7%89%88"><span class="toc-number">5.1.</span> <span class="toc-text">百度输入法养老版</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%92%E4%BC%A0"><span class="toc-number">5.2.</span> <span class="toc-text">互传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FTP-Share"><span class="toc-number">5.3.</span> <span class="toc-text">FTP Share</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MX-Player-Pro"><span class="toc-number">5.4.</span> <span class="toc-text">MX Player Pro</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IDM-%E7%BE%8E%E5%8C%96%E9%AB%98%E7%BA%A7%E7%89%88"><span class="toc-number">5.5.</span> <span class="toc-text">IDM+美化高级版</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%AA%E8%B1%B9%E9%80%9F%E6%B8%85"><span class="toc-number">5.6.</span> <span class="toc-text">雪豹速清</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NCM-Dump"><span class="toc-number">5.7.</span> <span class="toc-text">NCM Dump</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">下载链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/21/012/" title="保姆级Android系统优化教程（免Root篇）"><img src="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202408211432547.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="保姆级Android系统优化教程（免Root篇）"/></a><div class="content"><a class="title" href="/2024/08/21/012/" title="保姆级Android系统优化教程（免Root篇）">保姆级Android系统优化教程（免Root篇）</a><time datetime="2024-08-21T06:27:13.000Z" title="发表于 2024-08-21 14:27:13">2024-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/06/011/" title="window10安装window11自带应用——以笔记本为例"><img src="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202403061625955.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="window10安装window11自带应用——以笔记本为例"/></a><div class="content"><a class="title" href="/2024/03/06/011/" title="window10安装window11自带应用——以笔记本为例">window10安装window11自带应用——以笔记本为例</a><time datetime="2024-03-06T08:17:17.000Z" title="发表于 2024-03-06 16:17:17">2024-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/30/010/" title="如何选择适合自己的浏览器"><img src="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202401302142030.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何选择适合自己的浏览器"/></a><div class="content"><a class="title" href="/2024/01/30/010/" title="如何选择适合自己的浏览器">如何选择适合自己的浏览器</a><time datetime="2024-01-30T13:38:19.000Z" title="发表于 2024-01-30 21:38:19">2024-01-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/16/009/" title="国际商务考点汇总"><img src="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202308160952480.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="国际商务考点汇总"/></a><div class="content"><a class="title" href="/2023/08/16/009/" title="国际商务考点汇总">国际商务考点汇总</a><time datetime="2023-08-16T01:47:52.000Z" title="发表于 2023-08-16 09:47:52">2023-08-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/02/008/" title="从零开始的windows系统指南2.0"><img src="https://gcore.jsdelivr.net/gh/xiluoyun/pic/202306021831997.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从零开始的windows系统指南2.0"/></a><div class="content"><a class="title" href="/2023/06/02/008/" title="从零开始的windows系统指南2.0">从零开始的windows系统指南2.0</a><time datetime="2023-06-02T09:54:02.000Z" title="发表于 2023-06-02 17:54:02">2023-06-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By xiluo</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script></div></body></html>
